@@ -1,0 +1,33 @@
+<h3><%= "Agent: #{@agent.full_name}" %></h3>
+</br>
+<%= form_for [@agent, @contact] do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="panel panel-default">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th><%= f.label :contact_detail, 'Contact Detail:'  %></th>
+          <td><%= f.text_field :contact_detail %></td>
+        </tr>
+        <tr class="checkox" >
+          <th><%= f.label :default, 'Set as Default Contact:' %></th>
+          <td><%= f.check_box :default %></td>
+        </tr>   
+      </tbody>    
+    </table>  
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", class: "btn btn-primary btn-sm" %>  
+  </div>   
+<% end %>

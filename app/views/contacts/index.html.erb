@@ -1,0 +1,31 @@
+<h2>Listing contacts</h2>
+<div class="header">
+  <h3><%= "Agent: #{@agent.full_name}" %><h3> 
+</div>
+</br>
+<div class="panel panel-default">  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Contact</th>
+        <th>Default Contact</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @contacts.each do |contact| %>
+        <tr>
+          <td><%= contact.contact_detail %></td>
+          <td><%= contact.default %></td>
+          <td><%= link_to 'Show', agent_contact_path(id:  contact.id), class: 'btn btn-primary btn-xs' %></td>
+          <td><%= link_to 'Edit', edit_agent_contact_path(id: contact.id), class: 'btn btn-primary btn-xs' %></td>
+          <td><%= link_to 'Delete', contact, class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+<%= link_to 'Home', root_path, class: 'btn btn-primary btn-sm'  %> 
+<%= link_to 'New Contact', new_agent_contact_path, class: 'btn btn-primary btn-sm'  %>

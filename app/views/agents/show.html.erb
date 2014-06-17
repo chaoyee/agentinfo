@@ -1,0 +1,13 @@
+<h3>Show Contact Information<h3>
+<p>
+  <strong>First name:</strong>
+  <%= @agent.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @agent.last_name %>
+</p>
+
+<%= link_to 'Edit', edit_agent_path(@agent), class: "btn btn-primary btn-sm" %>
+<%= link_to 'Back', agents_path, class: "btn btn-info btn-sm" %>

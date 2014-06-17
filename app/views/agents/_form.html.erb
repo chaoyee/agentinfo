@@ -1,0 +1,30 @@
+<%= form_for(@agent) do |f| %>
+  <% if @agent.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(@agent.errors.count, "error") %> prohibited this agent from being saved:</h2>
+
+      <ul>
+      <% @agent.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="panel panel-default">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th><%= f.label :first_name, 'First Name:'   %></th>
+          <td><%= f.text_field :first_name %></td>
+        </tr>
+        <tr class="checkox" >
+          <th><%= f.label :last_name, 'Last Name:' %></th>
+          <td><%= f.text_field :last_name %></td>
+        </tr>   
+      </tbody>    
+    </table>  
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", class: "btn btn-primary btn-sm" %>
+  </div>
+<% end %>

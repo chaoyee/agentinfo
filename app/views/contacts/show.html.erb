@@ -1,0 +1,18 @@
+<h3>Show Contact Information<h3>
+<p>
+  <strong>Agent:</strong>
+  <%= @contact.agent.full_name %>
+</p>
+
+<p>
+  <strong>Contact detail:</strong>
+  <%= @contact.contact_detail %>
+</p>
+
+<p>
+  <strong>Default Contact:</strong>
+  <%= @contact.default %>
+</p>
+
+<%= link_to 'Edit', edit_agent_contact_path(id: @contact.id, agent_id: @contact.agent_id), class: "btn btn-primary btn-sm" %>
+<%= link_to 'Back', agent_contacts_path(agent_id: @contact.agent_id), class: "btn btn-info btn-sm" %>
